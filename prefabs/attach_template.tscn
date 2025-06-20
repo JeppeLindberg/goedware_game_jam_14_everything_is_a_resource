@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ygu6wpkmtgbx"]
+
+[ext_resource type="Script" uid="uid://dhr01gwmdr8go" path="res://scripts/attach.gd" id="1_xnul1"]
+
+[node name="attach" type="Node2D"]
+script = ExtResource("1_xnul1")
+
+[node name="move_towards" type="Node2D" parent="."]
+position = Vector2(33, 0)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqhsyiini58i6"]
+
+[ext_resource type="Script" uid="uid://ba7xqrbqvtsft" path="res://scripts/debris.gd" id="1_duitm"]
+[ext_resource type="Texture2D" uid="uid://bxitjgyk6rcxg" path="res://sprites/white.png" id="2_qliip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(14, 14)
+
+[node name="debris" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_duitm")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sugp2")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.120095, 0.120095)
+texture = ExtResource("2_qliip")
