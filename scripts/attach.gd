@@ -7,6 +7,7 @@ extends Node2D
 var debris
 
 func _ready() -> void:
+	add_to_group('attach')
 	move_towards.position = move_towards.position * (randf()*0.5 + 0.5)
 	if randf() < 0.5:
 		debris_rotation_speed *= -1;

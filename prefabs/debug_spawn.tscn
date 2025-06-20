@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfok781k1dich"]
+
+[ext_resource type="Script" uid="uid://bq03y4muvsm1o" path="res://scripts/debug_spawn.gd" id="1_u4h42"]
+[ext_resource type="Texture2D" uid="uid://d3satm27annnv" path="res://sprites/circle.png" id="2_tr00c"]
+
+[node name="debug_spawn" type="Node2D"]
+script = ExtResource("1_u4h42")
+
+[node name="sprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.776345, 0.597733, 0, 1)
+scale = Vector2(0.102187, 0.102187)
+texture = ExtResource("2_tr00c")

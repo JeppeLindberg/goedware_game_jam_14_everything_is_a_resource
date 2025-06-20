@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ji0ihk5cojma"]
+
+[ext_resource type="Script" uid="uid://bj76ggg6tj1gr" path="res://scripts/shot.gd" id="1_ng2it"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ng2it"]
+friction = 0.5
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tipki"]
+radius = 23.0217
+
+[node name="shot" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_ng2it")
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_ng2it")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tipki")

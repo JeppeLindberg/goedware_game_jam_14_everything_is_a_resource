@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bv0t6xv8q4vuy"]
+[gd_scene load_steps=16 format=3 uid="uid://bv0t6xv8q4vuy"]
 
 [ext_resource type="Script" uid="uid://bhr8c5fraojq8" path="res://scripts/player.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dj162p2vv1xmw" path="res://scripts/main.gd" id="1_tbgi4"]
@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bqhsyiini58i6" path="res://prefabs/debris.tscn" id="2_tipki"]
 [ext_resource type="Script" uid="uid://b8016b6u8utuu" path="res://scripts/gun.gd" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://cifc4erdmoi1s" path="res://scripts/vacuum_point.gd" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://ji0ihk5cojma" path="res://prefabs/shot.tscn" id="6_85g3d"]
 [ext_resource type="Script" uid="uid://c7t35v7feojp0" path="res://scripts/center.gd" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://ygu6wpkmtgbx" path="res://prefabs/attach_template.tscn" id="8_tipki"]
+[ext_resource type="Script" uid="uid://b6a71nkjowvsy" path="res://scripts/debug_spawner.gd" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://cfok781k1dich" path="res://prefabs/debug_spawn.tscn" id="11_ya4ey"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0wfyh"]
 friction = 0.0
@@ -25,10 +28,57 @@ radius = 75.0267
 script = ExtResource("1_tbgi4")
 basic_layer = 1
 
+[node name="static" type="Node2D" parent="."]
+
+[node name="wall" type="StaticBody2D" parent="static"]
+position = Vector2(189, 18)
+
+[node name="shape" type="CollisionPolygon2D" parent="static/wall"]
+polygon = PackedVector2Array(44, 2, 81, 60, 211, 18, 282, 125, 573, 126, 819, 96, 827, -13, 394, -170, 5, -102, 1, -1)
+
+[node name="wall2" type="StaticBody2D" parent="static"]
+position = Vector2(978, 98)
+
+[node name="shape" type="CollisionPolygon2D" parent="static/wall2"]
+polygon = PackedVector2Array(44, 104, 142, 252, 130, 524, 528, 560, 779, 532, 819, 96, 827, -13, 394, -170, 5, -102, 1, -1)
+
+[node name="wall3" type="StaticBody2D" parent="static"]
+position = Vector2(142, 704)
+
+[node name="shape" type="CollisionPolygon2D" parent="static/wall3"]
+polygon = PackedVector2Array(44, 104, 142, 252, 130, 524, 1264, 402, 1440, -138, 723, -80, 409, -82, 394, -170, 5, -102, 1, -1)
+
+[node name="wall4" type="StaticBody2D" parent="static"]
+position = Vector2(-184, 49)
+
+[node name="shape" type="CollisionPolygon2D" parent="static/wall4"]
+polygon = PackedVector2Array(44, 104, 101, 651, 456, 796, 370, 591, 289, 499, 228, 386, 259, 73, 409, -48, 392, -148, 105, -128)
+
 [node name="world" type="Node2D" parent="."]
 
 [node name="debris" parent="world" instance=ExtResource("2_tipki")]
 position = Vector2(643, 190)
+
+[node name="debris2" parent="world" instance=ExtResource("2_tipki")]
+position = Vector2(154, 180)
+
+[node name="debris3" parent="world" instance=ExtResource("2_tipki")]
+position = Vector2(308, 515)
+
+[node name="debris4" parent="world" instance=ExtResource("2_tipki")]
+position = Vector2(1089, 462)
+
+[node name="debris5" parent="world" instance=ExtResource("2_tipki")]
+position = Vector2(908, 396)
+
+[node name="debris6" parent="world" instance=ExtResource("2_tipki")]
+position = Vector2(727, 476)
+
+[node name="debris7" parent="world" instance=ExtResource("2_tipki")]
+position = Vector2(90, 363)
+
+[node name="debris8" parent="world" instance=ExtResource("2_tipki")]
+position = Vector2(197, 277)
 
 [node name="player" type="RigidBody2D" parent="world"]
 position = Vector2(448, 248)
@@ -58,6 +108,7 @@ vertical_alignment = 1
 
 [node name="gun" type="Node2D" parent="world/player"]
 script = ExtResource("3_sugp2")
+shot_prefab = ExtResource("6_85g3d")
 
 [node name="sprite" type="Sprite2D" parent="world/player/gun"]
 position = Vector2(37, 11)
@@ -79,3 +130,7 @@ disabled = true
 [node name="center" type="Node2D" parent="world/player/gun/vacuum_point"]
 script = ExtResource("7_o6xl0")
 attach_template = ExtResource("8_tipki")
+
+[node name="debug_spawner" type="Node2D" parent="."]
+script = ExtResource("10_choun")
+debug_spawn = ExtResource("11_ya4ey")
