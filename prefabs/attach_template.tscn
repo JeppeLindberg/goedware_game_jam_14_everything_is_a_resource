@@ -6,4 +6,4 @@
 script = ExtResource("1_xnul1")
 
 [node name="move_towards" type="Node2D" parent="."]
-position = Vector2(33, 0)
+position = Vector2(6, 0)

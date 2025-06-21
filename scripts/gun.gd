@@ -1,6 +1,7 @@
 extends Node2D
 
 var mouse_pos: Vector2
+var mouse_world_pos: Vector2
 var vacuum_on: bool
 
 @export var shot_prefab: PackedScene
@@ -14,12 +15,14 @@ func _input(event: InputEvent) -> void:
 		mouse_pos = event.position
 	
 func _process(_delta: float) -> void:
-	if mouse_pos.x < global_position.x:
+	mouse_world_pos = get_viewport().get_canvas_transform().affine_inverse() * mouse_pos
+
+	if mouse_world_pos.x < global_position.x:
 		scale.x = -1
-		look_at(global_position + (global_position - mouse_pos))
+		look_at(global_position + (global_position - mouse_world_pos))
 	else:
 		scale.x = 1;
-		look_at(mouse_pos)
+		look_at(mouse_world_pos)
 
 	if Input.is_action_pressed('vacuum_on'):
 		vacuum_on = true;
@@ -46,7 +49,7 @@ func shoot():
 	for debris_node in debris:
 		debris_node.reparent(new_shot)
 
-	new_shot.apply_force((mouse_pos - global_position) * shoot_velocity)
+	new_shot.apply_force((mouse_world_pos - global_position) * shoot_velocity)
 
 	var attach = main.get_children_in_group(vacuum_point, 'attach')
 	for attach_node in attach:

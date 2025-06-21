@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bxitjgyk6rcxg" path="res://sprites/white.png" id="2_qliip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
-size = Vector2(14, 14)
+size = Vector2(8, 8)
 
 [node name="debris" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
 gravity_scale = 0.0
 linear_damp = 1.0
 angular_damp = 5.0
@@ -16,5 +18,5 @@ script = ExtResource("1_duitm")
 shape = SubResource("RectangleShape2D_sugp2")
 
 [node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.120095, 0.120095)
+scale = Vector2(0.06, 0.06)
 texture = ExtResource("2_qliip")

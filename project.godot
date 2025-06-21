@@ -43,6 +43,10 @@ vacuum_on={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_3="debris"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
