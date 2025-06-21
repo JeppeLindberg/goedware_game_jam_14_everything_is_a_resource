@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqhsyiini58i6"]
+[gd_scene load_steps=8 format=3 uid="uid://bqhsyiini58i6"]
 
 [ext_resource type="Script" uid="uid://ba7xqrbqvtsft" path="res://scripts/debris.gd" id="1_duitm"]
-[ext_resource type="Texture2D" uid="uid://bxitjgyk6rcxg" path="res://sprites/white.png" id="2_qliip"]
+[ext_resource type="Texture2D" uid="uid://dr8tri182leyh" path="res://sprites/small_debris_1.png" id="2_6tpbs"]
+[ext_resource type="Texture2D" uid="uid://bvgw0gseiqupw" path="res://sprites/small_debris_2.png" id="3_men71"]
+[ext_resource type="Texture2D" uid="uid://b0x1djh6q5dsk" path="res://sprites/small_debris_3.png" id="4_osuyg"]
+[ext_resource type="Texture2D" uid="uid://qoqqqdnuxv1d" path="res://sprites/small_debris_4.png" id="5_ojdfa"]
+[ext_resource type="Texture2D" uid="uid://bmesps6dd08hs" path="res://sprites/small_debris_5.png" id="6_2g027"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(8, 8)
@@ -13,10 +17,12 @@ gravity_scale = 0.0
 linear_damp = 1.0
 angular_damp = 5.0
 script = ExtResource("1_duitm")
+possible_sprites = Array[Texture2D]([ExtResource("2_6tpbs"), ExtResource("3_men71"), ExtResource("4_osuyg"), ExtResource("5_ojdfa"), ExtResource("6_2g027")])
 
 [node name="shape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sugp2")
 
 [node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("2_qliip")
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_2g027")
