@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://c5g55qf1eqkni"]
+
+[ext_resource type="Texture2D" uid="uid://pii5f1d3d8cm" path="res://sprites/snapper-Sheet.png" id="1_t8aau"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndc56"]
+atlas = ExtResource("1_t8aau")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72ta2"]
+atlas = ExtResource("1_t8aau")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0rm6"]
+atlas = ExtResource("1_t8aau")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy34y"]
+atlas = ExtResource("1_t8aau")
+region = Rect2(600, 0, 200, 200)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndc56")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndc56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ta2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0rm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy34y")
+}],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}]
