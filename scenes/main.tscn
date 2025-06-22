@@ -17,10 +17,6 @@
 [ext_resource type="Script" uid="uid://b6a71nkjowvsy" path="res://scripts/debug_spawner.gd" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://cfok781k1dich" path="res://prefabs/debug_spawn.tscn" id="11_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://cmqmwyrb0qeka" path="res://sprite_frames/tilemap_atlas.tres" id="13_trceg"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://cd06n8hrs0sgp" path="res://car.tscn" id="15_jkv2x"]
-=======
->>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trceg"]
 texture = ExtResource("13_trceg")
@@ -142,33 +138,22 @@ collision_mask = 7
 [node name="shape" type="CollisionPolygon2D" parent="static/wall5"]
 polygon = PackedVector2Array(-54, -49, 83, -50, 83, 114, -57, 112)
 
-<<<<<<< Updated upstream
-[node name="Car" parent="." instance=ExtResource("15_jkv2x")]
-position = Vector2(337, 107)
-=======
 [node name="destructibles" type="Node2D" parent="."]
 
 [node name="Object" parent="destructibles" instance=ExtResource("3_muem4")]
 position = Vector2(349, 112)
 object_data = ExtResource("4_dp3eg")
-small_debris_prefab = ExtResource("2_tipki")
 
 [node name="Object2" parent="destructibles" instance=ExtResource("3_muem4")]
 position = Vector2(162, 405)
 object_data = ExtResource("6_0ld40")
-small_debris_prefab = ExtResource("2_tipki")
->>>>>>> Stashed changes
 
 [node name="world" type="Node2D" parent="."]
 
 [node name="snapper" parent="world" instance=ExtResource("7_muem4")]
 position = Vector2(565, 320)
-<<<<<<< Updated upstream
-scale = Vector2(0.5, 0.5)
-sprite_frames = ExtResource("3_a8y0u")
-autoplay = "default"
-=======
->>>>>>> Stashed changes
+frame = 0
+frame_progress = 0.0
 
 [node name="debris" parent="world" instance=ExtResource("2_tipki")]
 position = Vector2(643, 190)

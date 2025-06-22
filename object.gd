@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends RigidBody2D
 
 @export var object_data : DestructibleObjectResource
 var local_data : DestructibleObjectResource
