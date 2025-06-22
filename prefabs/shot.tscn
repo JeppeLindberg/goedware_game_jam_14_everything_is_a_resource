@@ -19,3 +19,5 @@ script = ExtResource("1_ng2it")
 
 [node name="shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tipki")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

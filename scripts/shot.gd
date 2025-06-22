@@ -6,11 +6,12 @@ extends RigidBody2D
 
 var drop_children = []
 
+
+
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	for i in range(state.get_contact_count()):
 		var collision_point = state.get_contact_collider_position(i)
 		debug_spawner.spawn(collision_point)
-
 		var debris_children = main.get_children_in_group(self, 'debris')
 		var children_to_drop = int(len(debris_children)/2.0) + 1
 		for j in range(len(debris_children)):
@@ -27,3 +28,8 @@ func _physics_process(_delta: float) -> void:
 		if len(main.get_children_in_group(self, 'debris')) <= 0:
 			queue_free()
 			return
+
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("Destructible"):
+		body.hp_drain()
