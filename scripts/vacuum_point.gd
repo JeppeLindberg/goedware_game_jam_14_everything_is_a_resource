@@ -9,6 +9,7 @@ var prev_seconds: int = 0
 @onready var attach_shape = get_node('attach_shape')
 @onready var main = get_node('/root/main')
 @onready var center = get_node('center')
+@onready var sprite = get_node('sprite')
 
 @export_flags_2d_physics var attach_layer: int
 @export_flags_2d_physics var suck_layer: int
@@ -21,6 +22,8 @@ func _process(_delta: float) -> void:
 		scale.x = -1
 	else:
 		scale.x = 1
+
+	sprite.visible = vacuum_on
 
 func _physics_process(_delta: float) -> void:
 	if vacuum_on:		

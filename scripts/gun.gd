@@ -8,6 +8,7 @@ var vacuum_on: bool
 
 @onready var main = get_node('/root/main')
 @onready var vacuum_point = get_node('vacuum_point')
+@onready var vacuum_sprite = get_node('vacuum_point/sprite')
 @onready var world = get_node('/root/main/world')
 
 func _input(event: InputEvent) -> void:
@@ -19,9 +20,11 @@ func _process(_delta: float) -> void:
 
 	if mouse_world_pos.x < global_position.x:
 		scale.x = -1
+		vacuum_sprite.scale.y = -0.5
 		look_at(global_position + (global_position - mouse_world_pos))
 	else:
 		scale.x = 1;
+		vacuum_sprite.scale.y = 0.5
 		look_at(mouse_world_pos)
 
 	if Input.is_action_pressed('vacuum_on'):
