@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DestructibleObjectResource" load_steps=3 format=3 uid="uid://ca6gfbvx64mgo"]
+
+[ext_resource type="Script" uid="uid://t8vsjcamwmlw" path="res://resources/destructible_object_resource.gd" id="1_ogcbg"]
+[ext_resource type="Texture2D" uid="uid://8seq8o347los" path="res://sprites/large_debris_2.png" id="2_abur2"]
+
+[resource]
+script = ExtResource("1_ogcbg")
+health = 20
+sprite = ExtResource("2_abur2")
+collision_size = Vector2(10, 10)
+sprite_scale = Vector2(0.5, 0.5)
+metadata/_custom_type_script = "uid://t8vsjcamwmlw"

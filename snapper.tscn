@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dohb1kmupsii1"]
+
+[ext_resource type="SpriteFrames" uid="uid://c5g55qf1eqkni" path="res://sprite_frames/snapper.tres" id="1_6mgnd"]
+[ext_resource type="Script" uid="uid://bmn7hfwre6fui" path="res://snapper.gd" id="2_4xdvh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqfbi"]
+size = Vector2(48, 50)
+
+[node name="snapper" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("1_6mgnd")
+animation = &"eat"
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+script = ExtResource("2_4xdvh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_kqfbi")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

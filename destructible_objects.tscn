@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cplit5o3srbf1"]
+
+[ext_resource type="Script" uid="uid://djuhnwy5llkn4" path="res://object.gd" id="1_naq57"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfk7t"]
+
+[node name="Object" type="RigidBody2D" groups=["Destructible"]]
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 15.0
+script = ExtResource("1_naq57")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rfk7t")
