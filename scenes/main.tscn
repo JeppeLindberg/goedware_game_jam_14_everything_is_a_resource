@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://b6a71nkjowvsy" path="res://scripts/debug_spawner.gd" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://cfok781k1dich" path="res://prefabs/debug_spawn.tscn" id="11_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://cmqmwyrb0qeka" path="res://sprite_frames/tilemap_atlas.tres" id="13_trceg"]
-[ext_resource type="PackedScene" path="res://car.tscn" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://cplit5o3srbf1" path="res://car.tscn" id="15_jkv2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trceg"]
 texture = ExtResource("13_trceg")
@@ -136,9 +136,6 @@ collision_mask = 7
 [node name="shape" type="CollisionPolygon2D" parent="static/wall5"]
 polygon = PackedVector2Array(-54, -49, 83, -50, 83, 114, -57, 112)
 
-[node name="Car" parent="." instance=ExtResource("15_jkv2x")]
-position = Vector2(337, 107)
-
 [node name="world" type="Node2D" parent="."]
 
 [node name="snapper" type="AnimatedSprite2D" parent="world"]
@@ -147,6 +144,9 @@ position = Vector2(565, 320)
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("3_a8y0u")
 autoplay = "default"
+
+[node name="Car" parent="world" instance=ExtResource("15_jkv2x")]
+position = Vector2(337, 107)
 
 [node name="debris" parent="world" instance=ExtResource("2_tipki")]
 position = Vector2(643, 190)
@@ -203,7 +203,8 @@ texture = ExtResource("7_eb6dy")
 [node name="vacuum_point" type="Node2D" parent="world/player/gun"]
 position = Vector2(17, 0)
 script = ExtResource("4_jyhfs")
-debris_layer = 4
+attach_layer = 4
+suck_layer = 5
 
 [node name="suck_shape" type="CollisionShape2D" parent="world/player/gun/vacuum_point"]
 shape = SubResource("CircleShape2D_tbgi4")
