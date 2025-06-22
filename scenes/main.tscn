@@ -1,22 +1,22 @@
-[gd_scene load_steps=24 format=4 uid="uid://bv0t6xv8q4vuy"]
+[gd_scene load_steps=30 format=4 uid="uid://bv0t6xv8q4vuy"]
 
 [ext_resource type="Script" uid="uid://bhr8c5fraojq8" path="res://scripts/player.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dj162p2vv1xmw" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bqhsyiini58i6" path="res://prefabs/debris.tscn" id="2_tipki"]
-[ext_resource type="PackedScene" uid="uid://cplit5o3srbf1" path="res://destructible_objects.tscn" id="3_muem4"]
+[ext_resource type="SpriteFrames" uid="uid://c5g55qf1eqkni" path="res://sprite_frames/snapper.tres" id="3_a8y0u"]
 [ext_resource type="Script" uid="uid://b8016b6u8utuu" path="res://scripts/gun.gd" id="3_sugp2"]
-[ext_resource type="Resource" uid="uid://chnj7aomn6p5s" path="res://resources/old_car.tres" id="4_dp3eg"]
 [ext_resource type="SpriteFrames" uid="uid://cvwmqtt7rg3wp" path="res://sprite_frames/player.tres" id="4_eb6dy"]
 [ext_resource type="Script" uid="uid://cifc4erdmoi1s" path="res://scripts/vacuum_point.gd" id="4_jyhfs"]
-[ext_resource type="Resource" uid="uid://ca6gfbvx64mgo" path="res://resources/washing_machine.tres" id="6_0ld40"]
 [ext_resource type="PackedScene" uid="uid://ji0ihk5cojma" path="res://prefabs/shot.tscn" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cgw31vj6hf7q8" path="res://sprites/gun.png" id="7_eb6dy"]
-[ext_resource type="PackedScene" uid="uid://dohb1kmupsii1" path="res://snapper.tscn" id="7_muem4"]
 [ext_resource type="Script" uid="uid://c7t35v7feojp0" path="res://scripts/center.gd" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://ygu6wpkmtgbx" path="res://prefabs/attach_template.tscn" id="8_tipki"]
 [ext_resource type="Script" uid="uid://b6a71nkjowvsy" path="res://scripts/debug_spawner.gd" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://cfok781k1dich" path="res://prefabs/debug_spawn.tscn" id="11_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://cf1gltv2bt20v" path="res://sprites/vacuum-Sheet.png" id="12_jbj1t"]
+[ext_resource type="Script" uid="uid://tkag8n4di7db" path="res://scripts/stay_upright.gd" id="13_muem4"]
 [ext_resource type="Texture2D" uid="uid://cmqmwyrb0qeka" path="res://sprite_frames/tilemap_atlas.tres" id="13_trceg"]
+[ext_resource type="PackedScene" uid="uid://cplit5o3srbf1" path="res://car.tscn" id="15_jkv2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trceg"]
 texture = ExtResource("13_trceg")
@@ -81,6 +81,49 @@ friction = 0.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wfyh"]
 radius = 9.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_muem4"]
+atlas = ExtResource("12_jbj1t")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
+atlas = ExtResource("12_jbj1t")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ld40"]
+atlas = ExtResource("12_jbj1t")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqmmt"]
+atlas = ExtResource("12_jbj1t")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc10j"]
+atlas = ExtResource("12_jbj1t")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jscy8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muem4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp3eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ld40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqmmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc10j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_tbgi4"]
 radius = 72.3671
 
@@ -92,6 +135,7 @@ script = ExtResource("1_tbgi4")
 basic_layer = 1
 
 [node name="environment" type="TileMapLayer" parent="."]
+z_index = -100
 texture_filter = 1
 tile_map_data = PackedByteArray("AAAKAAQAAAAIAAAAAAALAAQAAAAKAAAAAAAMAAQAAAALAAAAAAAMAAUAAAALAAIAAAAMAAYAAAALAAMAAAALAAYAAAAJAAMAAAAKAAYAAAAIAAMAAAAKAAUAAAAIAAEAAAALAAUAAAAJAAIAAAABAAcAAAAGAAEAAAABAAYAAAALAAIAAAABAAUAAAALAAIAAAABAAQAAAALAAIAAAABAAMAAAAGAAIAAAACAAMAAAAJAAMAAAADAAMAAAALAAMAAAADAAIAAAALAAIAAAADAAEAAAALAAIAAAADAAAAAAAGAAIAAAAEAAAAAAAJAAMAAAAFAAAAAAAJAAMAAAAGAAAAAAAJAAMAAAAHAAAAAAAFAAIAAAAHAAEAAAAIAAEAAAAHAAIAAAAIAAMAAAAIAAIAAAAJAAMAAAAJAAIAAAAJAAMAAAAKAAIAAAAJAAMAAAALAAIAAAAJAAMAAAAMAAIAAAAJAAMAAAANAAIAAAAJAAMAAAAOAAIAAAAFAAIAAAAOAAMAAAAIAAEAAAAOAAQAAAAIAAMAAAAPAAQAAAAJAAMAAAAQAAQAAAAJAAMAAAARAAQAAAAFAAIAAAARAAUAAAAIAAEAAAARAAYAAAAIAAEAAAARAAcAAAAIAAEAAAARAAgAAAAFAAEAAAAQAAgAAAAKAAAAAAAPAAgAAAAKAAAAAAAOAAgAAAAIAAAAAAAOAAkAAAAFAAEAAAANAAkAAAAKAAAAAAAMAAkAAAAKAAAAAAALAAkAAAAKAAAAAAAKAAkAAAAKAAAAAAAJAAkAAAAKAAAAAAAIAAkAAAAKAAAAAAAHAAkAAAAGAAEAAAAHAAgAAAALAAIAAAAHAAcAAAALAAIAAAAHAAYAAAALAAAAAAAGAAYAAAAKAAAAAAAFAAYAAAAKAAAAAAAEAAYAAAAIAAAAAAAEAAcAAAAFAAEAAAADAAcAAAAKAAAAAAACAAcAAAAKAAAAAAAIAAYAAAAKAAEAAAAIAAUAAAAKAAEAAAAIAAQAAAAKAAEAAAAIAAMAAAAKAAEAAAAHAAMAAAAKAAEAAAAGAAMAAAAKAAEAAAAGAAIAAAAKAAEAAAAGAAEAAAAKAAEAAAAFAAEAAAAKAAEAAAAEAAEAAAAKAAEAAAAEAAIAAAAKAAEAAAAEAAMAAAAKAAEAAAAEAAQAAAAKAAEAAAADAAQAAAAKAAEAAAACAAQAAAAKAAEAAAACAAUAAAAKAAEAAAACAAYAAAAKAAEAAAADAAYAAAAKAAEAAAADAAUAAAAKAAEAAAAEAAUAAAAKAAEAAAAFAAUAAAAKAAEAAAAFAAQAAAAKAAEAAAAFAAMAAAAKAAEAAAAFAAIAAAAKAAEAAAAGAAQAAAAKAAEAAAAGAAUAAAAKAAEAAAAHAAUAAAAKAAEAAAAHAAQAAAAKAAEAAAAJAAMAAAAKAAEAAAAJAAQAAAAKAAEAAAAJAAUAAAAKAAEAAAAJAAYAAAAKAAEAAAAJAAcAAAAKAAEAAAAIAAcAAAAKAAEAAAAIAAgAAAAKAAEAAAAJAAgAAAAKAAEAAAAKAAgAAAAKAAEAAAAKAAcAAAAKAAEAAAALAAcAAAAKAAEAAAALAAgAAAAKAAEAAAAMAAgAAAAKAAEAAAAMAAcAAAAKAAEAAAANAAcAAAAKAAEAAAANAAYAAAAKAAEAAAANAAUAAAAKAAEAAAANAAQAAAAKAAEAAAANAAMAAAAKAAEAAAAMAAMAAAAKAAEAAAALAAMAAAAKAAEAAAAKAAMAAAAKAAEAAAAOAAUAAAAKAAEAAAAOAAYAAAAKAAEAAAAOAAcAAAAKAAEAAAAPAAcAAAAKAAEAAAAPAAYAAAAKAAEAAAAPAAUAAAAKAAEAAAAQAAUAAAAKAAEAAAAQAAYAAAAKAAEAAAAQAAcAAAAKAAEAAAANAAgAAAAKAAEAAAAQAAMAAAAJAAIAAAAQAAIAAAAJAAIAAAAQAAEAAAAJAAIAAAAQAAAAAAAJAAIAAAAPAAAAAAAJAAIAAAAOAAAAAAAJAAIAAAANAAAAAAAJAAIAAAAMAAAAAAAJAAIAAAALAAAAAAAJAAIAAAAKAAAAAAAJAAIAAAAJAAAAAAAJAAIAAAAIAAAAAAAJAAIAAAAIAAEAAAAJAAIAAAAJAAEAAAAJAAIAAAAKAAEAAAAJAAIAAAALAAEAAAAJAAIAAAAMAAEAAAAJAAIAAAANAAEAAAAJAAIAAAAOAAEAAAAJAAIAAAAPAAEAAAAJAAIAAAAPAAIAAAAJAAIAAAAPAAMAAAAJAAIAAAARAAAAAAAJAAIAAAARAAEAAAAJAAIAAAARAAIAAAAJAAIAAAARAAMAAAAJAAIAAAACAAEAAAAJAAIAAAACAAAAAAAJAAIAAAABAAAAAAAJAAIAAAABAAEAAAAJAAIAAAABAAIAAAAJAAIAAAACAAIAAAAJAAIAAAAFAAgAAAAJAAIAAAAFAAcAAAAJAAIAAAAGAAcAAAAJAAIAAAAGAAgAAAAJAAIAAAAGAAkAAAAJAAIAAAAFAAkAAAAJAAIAAAAEAAkAAAAJAAIAAAAEAAgAAAAJAAIAAAADAAgAAAAJAAIAAAACAAgAAAAJAAIAAAABAAgAAAAJAAIAAAABAAkAAAAJAAIAAAACAAkAAAAJAAIAAAADAAkAAAAJAAIAAAAPAAkAAAAJAAIAAAAQAAkAAAAJAAIAAAARAAkAAAAJAAIAAAA=")
 tile_set = SubResource("TileSet_eb6dy")
@@ -138,22 +182,17 @@ collision_mask = 7
 [node name="shape" type="CollisionPolygon2D" parent="static/wall5"]
 polygon = PackedVector2Array(-54, -49, 83, -50, 83, 114, -57, 112)
 
-[node name="destructibles" type="Node2D" parent="."]
-
-[node name="Object" parent="destructibles" instance=ExtResource("3_muem4")]
-position = Vector2(349, 112)
-object_data = ExtResource("4_dp3eg")
-
-[node name="Object2" parent="destructibles" instance=ExtResource("3_muem4")]
-position = Vector2(162, 405)
-object_data = ExtResource("6_0ld40")
-
 [node name="world" type="Node2D" parent="."]
 
-[node name="snapper" parent="world" instance=ExtResource("7_muem4")]
+[node name="snapper" type="AnimatedSprite2D" parent="world"]
+texture_filter = 1
 position = Vector2(565, 320)
-frame = 0
-frame_progress = 0.0
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("3_a8y0u")
+autoplay = "default"
+
+[node name="Car" parent="world" instance=ExtResource("15_jkv2x")]
+position = Vector2(337, 107)
 
 [node name="debris" parent="world" instance=ExtResource("2_tipki")]
 position = Vector2(643, 190)
@@ -210,7 +249,15 @@ texture = ExtResource("7_eb6dy")
 [node name="vacuum_point" type="Node2D" parent="world/player/gun"]
 position = Vector2(17, 0)
 script = ExtResource("4_jyhfs")
-debris_layer = 4
+attach_layer = 4
+suck_layer = 5
+
+[node name="sprite" type="AnimatedSprite2D" parent="world/player/gun/vacuum_point"]
+z_index = -10
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_jscy8")
+autoplay = "default"
+script = ExtResource("13_muem4")
 
 [node name="suck_shape" type="CollisionShape2D" parent="world/player/gun/vacuum_point"]
 shape = SubResource("CircleShape2D_tbgi4")
