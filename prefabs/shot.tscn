@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ji0ihk5cojma"]
+[gd_scene load_steps=5 format=3 uid="uid://ji0ihk5cojma"]
 
 [ext_resource type="Script" uid="uid://bj76ggg6tj1gr" path="res://scripts/shot.gd" id="1_ng2it"]
+[ext_resource type="Texture2D" uid="uid://bka0t21ufrckv" path="res://sprites/shot.png" id="2_vt6wl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ng2it"]
 friction = 0.5
@@ -19,5 +20,9 @@ script = ExtResource("1_ng2it")
 
 [node name="shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tipki")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vt6wl")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

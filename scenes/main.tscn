@@ -1,8 +1,10 @@
-[gd_scene load_steps=33 format=4 uid="uid://bv0t6xv8q4vuy"]
+[gd_scene load_steps=31 format=4 uid="uid://bv0t6xv8q4vuy"]
 
 [ext_resource type="Script" uid="uid://bhr8c5fraojq8" path="res://scripts/player.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dj162p2vv1xmw" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bqhsyiini58i6" path="res://prefabs/debris.tscn" id="2_tipki"]
+[ext_resource type="SpriteFrames" uid="uid://c5g55qf1eqkni" path="res://sprite_frames/snapper.tres" id="3_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://b4fxueoc2ewov" path="res://sprites/instruction.png" id="3_dp3eg"]
 [ext_resource type="Script" uid="uid://b8016b6u8utuu" path="res://scripts/gun.gd" id="3_sugp2"]
 [ext_resource type="SpriteFrames" uid="uid://cvwmqtt7rg3wp" path="res://sprite_frames/player.tres" id="4_eb6dy"]
 [ext_resource type="Script" uid="uid://cifc4erdmoi1s" path="res://scripts/vacuum_point.gd" id="4_jyhfs"]
@@ -15,11 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cf1gltv2bt20v" path="res://sprites/vacuum-Sheet.png" id="12_jbj1t"]
 [ext_resource type="Script" uid="uid://tkag8n4di7db" path="res://scripts/stay_upright.gd" id="13_muem4"]
 [ext_resource type="Texture2D" uid="uid://cmqmwyrb0qeka" path="res://sprite_frames/tilemap_atlas.tres" id="13_trceg"]
-[ext_resource type="PackedScene" uid="uid://cplit5o3srbf1" path="res://destructible_objects.tscn" id="15_jkv2x"]
-[ext_resource type="PackedScene" uid="uid://dohb1kmupsii1" path="res://snapper.tscn" id="16_0ld40"]
-[ext_resource type="Resource" uid="uid://chnj7aomn6p5s" path="res://resources/old_car.tres" id="18_gqmmt"]
-[ext_resource type="Resource" uid="uid://ca6gfbvx64mgo" path="res://resources/washing_machine.tres" id="19_yc10j"]
-[ext_resource type="PackedScene" uid="uid://ceed2kjg52d0v" path="res://ui.tscn" id="20_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://cplit5o3srbf1" path="res://car.tscn" id="15_jkv2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trceg"]
 texture = ExtResource("13_trceg")
@@ -143,6 +141,11 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAAKAAQAAAAIAAAAAAALAAQAAAAKAAAAAAAMAAQAAAALAAAAAAAMAAUAAAALAAIAAAAMAAYAAAALAAMAAAALAAYAAAAJAAMAAAAKAAYAAAAIAAMAAAAKAAUAAAAIAAEAAAALAAUAAAAJAAIAAAABAAcAAAAGAAEAAAABAAYAAAALAAIAAAABAAUAAAALAAIAAAABAAQAAAALAAIAAAABAAMAAAAGAAIAAAACAAMAAAAJAAMAAAADAAMAAAALAAMAAAADAAIAAAALAAIAAAADAAEAAAALAAIAAAADAAAAAAAGAAIAAAAEAAAAAAAJAAMAAAAFAAAAAAAJAAMAAAAGAAAAAAAJAAMAAAAHAAAAAAAFAAIAAAAHAAEAAAAIAAEAAAAHAAIAAAAIAAMAAAAIAAIAAAAJAAMAAAAJAAIAAAAJAAMAAAAKAAIAAAAJAAMAAAALAAIAAAAJAAMAAAAMAAIAAAAJAAMAAAANAAIAAAAJAAMAAAAOAAIAAAAFAAIAAAAOAAMAAAAIAAEAAAAOAAQAAAAIAAMAAAAPAAQAAAAJAAMAAAAQAAQAAAAJAAMAAAARAAQAAAAFAAIAAAARAAUAAAAIAAEAAAARAAYAAAAIAAEAAAARAAcAAAAIAAEAAAARAAgAAAAFAAEAAAAQAAgAAAAKAAAAAAAPAAgAAAAKAAAAAAAOAAgAAAAIAAAAAAAOAAkAAAAFAAEAAAANAAkAAAAKAAAAAAAMAAkAAAAKAAAAAAALAAkAAAAKAAAAAAAKAAkAAAAKAAAAAAAJAAkAAAAKAAAAAAAIAAkAAAAKAAAAAAAHAAkAAAAGAAEAAAAHAAgAAAALAAIAAAAHAAcAAAALAAIAAAAHAAYAAAALAAAAAAAGAAYAAAAKAAAAAAAFAAYAAAAKAAAAAAAEAAYAAAAIAAAAAAAEAAcAAAAFAAEAAAADAAcAAAAKAAAAAAACAAcAAAAKAAAAAAAIAAYAAAAKAAEAAAAIAAUAAAAKAAEAAAAIAAQAAAAKAAEAAAAIAAMAAAAKAAEAAAAHAAMAAAAKAAEAAAAGAAMAAAAKAAEAAAAGAAIAAAAKAAEAAAAGAAEAAAAKAAEAAAAFAAEAAAAKAAEAAAAEAAEAAAAKAAEAAAAEAAIAAAAKAAEAAAAEAAMAAAAKAAEAAAAEAAQAAAAKAAEAAAADAAQAAAAKAAEAAAACAAQAAAAKAAEAAAACAAUAAAAKAAEAAAACAAYAAAAKAAEAAAADAAYAAAAKAAEAAAADAAUAAAAKAAEAAAAEAAUAAAAKAAEAAAAFAAUAAAAKAAEAAAAFAAQAAAAKAAEAAAAFAAMAAAAKAAEAAAAFAAIAAAAKAAEAAAAGAAQAAAAKAAEAAAAGAAUAAAAKAAEAAAAHAAUAAAAKAAEAAAAHAAQAAAAKAAEAAAAJAAMAAAAKAAEAAAAJAAQAAAAKAAEAAAAJAAUAAAAKAAEAAAAJAAYAAAAKAAEAAAAJAAcAAAAKAAEAAAAIAAcAAAAKAAEAAAAIAAgAAAAKAAEAAAAJAAgAAAAKAAEAAAAKAAgAAAAKAAEAAAAKAAcAAAAKAAEAAAALAAcAAAAKAAEAAAALAAgAAAAKAAEAAAAMAAgAAAAKAAEAAAAMAAcAAAAKAAEAAAANAAcAAAAKAAEAAAANAAYAAAAKAAEAAAANAAUAAAAKAAEAAAANAAQAAAAKAAEAAAANAAMAAAAKAAEAAAAMAAMAAAAKAAEAAAALAAMAAAAKAAEAAAAKAAMAAAAKAAEAAAAOAAUAAAAKAAEAAAAOAAYAAAAKAAEAAAAOAAcAAAAKAAEAAAAPAAcAAAAKAAEAAAAPAAYAAAAKAAEAAAAPAAUAAAAKAAEAAAAQAAUAAAAKAAEAAAAQAAYAAAAKAAEAAAAQAAcAAAAKAAEAAAANAAgAAAAKAAEAAAAQAAMAAAAJAAIAAAAQAAIAAAAJAAIAAAAQAAEAAAAJAAIAAAAQAAAAAAAJAAIAAAAPAAAAAAAJAAIAAAAOAAAAAAAJAAIAAAANAAAAAAAJAAIAAAAMAAAAAAAJAAIAAAALAAAAAAAJAAIAAAAKAAAAAAAJAAIAAAAJAAAAAAAJAAIAAAAIAAAAAAAJAAIAAAAIAAEAAAAJAAIAAAAJAAEAAAAJAAIAAAAKAAEAAAAJAAIAAAALAAEAAAAJAAIAAAAMAAEAAAAJAAIAAAANAAEAAAAJAAIAAAAOAAEAAAAJAAIAAAAPAAEAAAAJAAIAAAAPAAIAAAAJAAIAAAAPAAMAAAAJAAIAAAARAAAAAAAJAAIAAAARAAEAAAAJAAIAAAARAAIAAAAJAAIAAAARAAMAAAAJAAIAAAACAAEAAAAJAAIAAAACAAAAAAAJAAIAAAABAAAAAAAJAAIAAAABAAEAAAAJAAIAAAABAAIAAAAJAAIAAAACAAIAAAAJAAIAAAAFAAgAAAAJAAIAAAAFAAcAAAAJAAIAAAAGAAcAAAAJAAIAAAAGAAgAAAAJAAIAAAAGAAkAAAAJAAIAAAAFAAkAAAAJAAIAAAAEAAkAAAAJAAIAAAAEAAgAAAAJAAIAAAADAAgAAAAJAAIAAAACAAgAAAAJAAIAAAABAAgAAAAJAAIAAAABAAkAAAAJAAIAAAACAAkAAAAJAAIAAAADAAkAAAAJAAIAAAAPAAkAAAAJAAIAAAAQAAkAAAAJAAIAAAARAAkAAAAJAAIAAAA=")
 tile_set = SubResource("TileSet_eb6dy")
 
+[node name="instruction" type="Sprite2D" parent="environment"]
+position = Vector2(390, 248)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_dp3eg")
+
 [node name="static" type="Node2D" parent="."]
 
 [node name="wall" type="StaticBody2D" parent="static"]
@@ -185,20 +188,17 @@ collision_mask = 7
 [node name="shape" type="CollisionPolygon2D" parent="static/wall5"]
 polygon = PackedVector2Array(-54, -49, 83, -50, 83, 114, -57, 112)
 
-[node name="snapper" parent="." instance=ExtResource("16_0ld40")]
-position = Vector2(566, 317)
-
-[node name="Object" parent="." instance=ExtResource("15_jkv2x")]
-position = Vector2(352, 120)
-object_data = ExtResource("18_gqmmt")
-small_debris_prefab = ExtResource("2_tipki")
-
-[node name="Object2" parent="." instance=ExtResource("15_jkv2x")]
-position = Vector2(165, 390)
-object_data = ExtResource("19_yc10j")
-small_debris_prefab = ExtResource("2_tipki")
-
 [node name="world" type="Node2D" parent="."]
+
+[node name="snapper" type="AnimatedSprite2D" parent="world"]
+texture_filter = 1
+position = Vector2(565, 320)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("3_a8y0u")
+autoplay = "default"
+
+[node name="Car" parent="world" instance=ExtResource("15_jkv2x")]
+position = Vector2(337, 107)
 
 [node name="debris" parent="world" instance=ExtResource("2_tipki")]
 position = Vector2(643, 190)
@@ -280,20 +280,6 @@ attach_template = ExtResource("8_tipki")
 [node name="Camera2D" type="Camera2D" parent="world/player"]
 zoom = Vector2(3, 3)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="world/player/Camera2D"]
-
-[node name="UI" parent="world/player/Camera2D/CanvasLayer" instance=ExtResource("20_gqmmt")]
-
 [node name="debug_spawner" type="Node2D" parent="."]
 script = ExtResource("10_choun")
 debug_spawn = ExtResource("11_ya4ey")
-
-[node name="Object3" parent="." instance=ExtResource("15_jkv2x")]
-position = Vector2(576, 518)
-object_data = ExtResource("18_gqmmt")
-small_debris_prefab = ExtResource("2_tipki")
-
-[node name="Object4" parent="." instance=ExtResource("15_jkv2x")]
-position = Vector2(1001, 369)
-object_data = ExtResource("19_yc10j")
-small_debris_prefab = ExtResource("2_tipki")
