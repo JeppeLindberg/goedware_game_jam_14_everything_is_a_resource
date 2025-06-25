@@ -10,6 +10,7 @@ var prev_seconds: int = 0
 @onready var main = get_node('/root/main')
 @onready var center = get_node('center')
 @onready var sprite = get_node('sprite')
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export_flags_2d_physics var attach_layer: int
 @export_flags_2d_physics var suck_layer: int
@@ -33,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 			if node.is_in_group('debris'):
 				node.disable_collision()
 				center.add_debris(node)
+				audio_stream_player_2d.play()
 
 		nodes = main.get_nodes_in_shape(suck_shape, global_transform, suck_layer)
 		

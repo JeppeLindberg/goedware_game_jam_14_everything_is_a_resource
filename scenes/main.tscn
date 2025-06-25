@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bv0t6xv8q4vuy"]
+[gd_scene load_steps=34 format=4 uid="uid://bv0t6xv8q4vuy"]
 
 [ext_resource type="Script" uid="uid://bhr8c5fraojq8" path="res://scripts/player.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dj162p2vv1xmw" path="res://scripts/main.gd" id="1_tbgi4"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://tkag8n4di7db" path="res://scripts/stay_upright.gd" id="13_muem4"]
 [ext_resource type="Texture2D" uid="uid://cmqmwyrb0qeka" path="res://sprite_frames/tilemap_atlas.tres" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://cplit5o3srbf1" path="res://destructible_objects.tscn" id="15_jkv2x"]
+[ext_resource type="AudioStream" uid="uid://dt8xxo7laxfpa" path="res://audio/obtain_scrap.wav" id="15_yc10j"]
 [ext_resource type="PackedScene" uid="uid://dohb1kmupsii1" path="res://snapper.tscn" id="17_0ld40"]
 [ext_resource type="Resource" uid="uid://chnj7aomn6p5s" path="res://resources/old_car.tres" id="19_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://ceed2kjg52d0v" path="res://ui.tscn" id="20_gqmmt"]
@@ -268,6 +269,10 @@ disabled = true
 [node name="center" type="Node2D" parent="world/player/gun/vacuum_point"]
 script = ExtResource("7_o6xl0")
 attach_template = ExtResource("8_tipki")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="world/player/gun/vacuum_point"]
+stream = ExtResource("15_yc10j")
+max_polyphony = 50
 
 [node name="Camera2D" type="Camera2D" parent="world/player"]
 zoom = Vector2(3, 3)
