@@ -8,6 +8,7 @@ var mouse_world_pos: Vector2
 
 @onready var gun = get_node('gun')
 @onready var sprite:AnimatedSprite2D = get_node('sprite')
+@onready var accept_input = true
 
 
 func _physics_process(delta):
@@ -33,6 +34,9 @@ func _process(_delta: float) -> void:
 		sprite.scale.x = 1;
 	
 func handle_controls(_delta):
+	if not accept_input:
+		return
+		
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	movement_direction = input.normalized()

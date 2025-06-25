@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://hf2s51xqr45s"]
+
+[node name="score" type="RichTextLabel"]
+text = "Score: 0"
+fit_content = true
+horizontal_alignment = 1

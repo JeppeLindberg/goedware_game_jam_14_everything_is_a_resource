@@ -10,12 +10,17 @@ var vacuum_on: bool
 @onready var vacuum_point = get_node('vacuum_point')
 @onready var vacuum_sprite = get_node('vacuum_point/sprite')
 @onready var world = get_node('/root/main/world')
+@onready var player = get_node('/root/main/world/player')
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouse:
 		mouse_pos = event.position
 	
 func _process(_delta: float) -> void:
+	if not player.accept_input:
+		vacuum_point.set_vacuum_on(false)
+		return
+
 	mouse_world_pos = get_viewport().get_canvas_transform().affine_inverse() * mouse_pos
 
 	if mouse_world_pos.x < global_position.x:
