@@ -22,6 +22,9 @@ func _physics_process(delta):
 	linear_velocity = movement_direction * movement_speed
 
 func _input(event: InputEvent) -> void:
+	if not accept_input:
+		return
+
 	if event is InputEventMouse:
 		mouse_pos = event.position
 
@@ -35,6 +38,7 @@ func _process(_delta: float) -> void:
 	
 func handle_controls(_delta):
 	if not accept_input:
+		movement_direction = Vector2.ZERO
 		return
 		
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")

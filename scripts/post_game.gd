@@ -13,12 +13,12 @@ func add_score(new_score):
 		for symbol in score_nodes[i].text:
 			if symbol in ['0','1','2','3','4','5','6','7','8','9']:
 				score += symbol
-		if int(score) <= new_score:
+		if (int(score) <= new_score) and (new_score != -1):
 			new_node = score_prefab.instantiate()
 			v_box_container.add_child(new_node)
 			new_node.text = 'YOU: ' + str(new_score)
 			new_node.self_modulate = Color.AQUAMARINE
-			new_score = 9999999
+			new_score = -1
 
 		new_node = score_prefab.instantiate()
 		v_box_container.add_child(new_node)

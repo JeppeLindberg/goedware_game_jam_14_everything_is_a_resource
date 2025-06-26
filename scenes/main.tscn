@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cifc4erdmoi1s" path="res://scripts/vacuum_point.gd" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://bconcqtxub65k" path="res://scripts/item_spawner.gd" id="4_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://ji0ihk5cojma" path="res://prefabs/shot.tscn" id="6_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cvihw5va2fsw8" path="res://washing_machine.tscn" id="6_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://cgw31vj6hf7q8" path="res://sprites/gun.png" id="7_eb6dy"]
 [ext_resource type="Script" uid="uid://c7t35v7feojp0" path="res://scripts/center.gd" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://ygu6wpkmtgbx" path="res://prefabs/attach_template.tscn" id="8_tipki"]
@@ -18,10 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://cf1gltv2bt20v" path="res://sprites/vacuum-Sheet.png" id="12_jbj1t"]
 [ext_resource type="Script" uid="uid://tkag8n4di7db" path="res://scripts/stay_upright.gd" id="13_muem4"]
 [ext_resource type="Texture2D" uid="uid://cmqmwyrb0qeka" path="res://sprite_frames/tilemap_atlas.tres" id="13_trceg"]
-[ext_resource type="PackedScene" uid="uid://cplit5o3srbf1" path="res://destructible_objects.tscn" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://cplit5o3srbf1" path="res://car.tscn" id="15_jkv2x"]
 [ext_resource type="AudioStream" uid="uid://dt8xxo7laxfpa" path="res://audio/obtain_scrap.wav" id="15_yc10j"]
 [ext_resource type="PackedScene" uid="uid://dohb1kmupsii1" path="res://snapper.tscn" id="17_0ld40"]
-[ext_resource type="Resource" uid="uid://chnj7aomn6p5s" path="res://resources/old_car.tres" id="19_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://ceed2kjg52d0v" path="res://ui.tscn" id="20_gqmmt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trceg"]
@@ -131,7 +131,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tbgi4"]
-radius = 72.3671
+radius = 186.011
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tefeu"]
 radius = 11.0454
@@ -195,7 +195,9 @@ polygon = PackedVector2Array(-54, -49, 83, -50, 83, 114, -57, 112)
 
 [node name="item_spawner" type="Node2D" parent="."]
 script = ExtResource("4_pm3ni")
-possible_spawns = Array[PackedScene]([ExtResource("2_tipki"), ExtResource("15_jkv2x")])
+car = ExtResource("15_jkv2x")
+washing_machine = ExtResource("6_pm3ni")
+small_debris = ExtResource("2_tipki")
 
 [node name="spawn_point" parent="item_spawner" instance=ExtResource("4_jscy8")]
 position = Vector2(261, 81)
@@ -431,26 +433,11 @@ position = Vector2(506, 243)
 [node name="spawn_point58" parent="item_spawner" instance=ExtResource("4_jscy8")]
 position = Vector2(506, 282)
 
-[node name="spawn_point59" parent="item_spawner" instance=ExtResource("4_jscy8")]
-position = Vector2(506, 319)
-
-[node name="spawn_point60" parent="item_spawner" instance=ExtResource("4_jscy8")]
-position = Vector2(503, 356)
-
 [node name="spawn_point81" parent="item_spawner" instance=ExtResource("4_jscy8")]
 position = Vector2(545, 204)
 
 [node name="spawn_point82" parent="item_spawner" instance=ExtResource("4_jscy8")]
 position = Vector2(544, 243)
-
-[node name="spawn_point83" parent="item_spawner" instance=ExtResource("4_jscy8")]
-position = Vector2(553, 289)
-
-[node name="spawn_point84" parent="item_spawner" instance=ExtResource("4_jscy8")]
-position = Vector2(553, 326)
-
-[node name="spawn_point85" parent="item_spawner" instance=ExtResource("4_jscy8")]
-position = Vector2(550, 363)
 
 [node name="spawn_point86" parent="item_spawner" instance=ExtResource("4_jscy8")]
 position = Vector2(597, 212)
@@ -460,12 +447,6 @@ position = Vector2(596, 251)
 
 [node name="spawn_point88" parent="item_spawner" instance=ExtResource("4_jscy8")]
 position = Vector2(596, 290)
-
-[node name="spawn_point89" parent="item_spawner" instance=ExtResource("4_jscy8")]
-position = Vector2(596, 327)
-
-[node name="spawn_point90" parent="item_spawner" instance=ExtResource("4_jscy8")]
-position = Vector2(593, 364)
 
 [node name="spawn_point91" parent="item_spawner" instance=ExtResource("4_jscy8")]
 position = Vector2(514, 392)
@@ -716,8 +697,8 @@ position = Vector2(759, 232)
 [node name="spawn_point173" parent="item_spawner" instance=ExtResource("4_jscy8")]
 position = Vector2(697, 232)
 
-[node name="spawn_point174" parent="item_spawner" instance=ExtResource("4_jscy8")]
-position = Vector2(634, 231)
+[node name="spawn_point174" parent="item_spawner/spawn_point173" instance=ExtResource("4_jscy8")]
+position = Vector2(-63, -1)
 
 [node name="spawn_point175" parent="item_spawner" instance=ExtResource("4_jscy8")]
 position = Vector2(675, 237)
@@ -735,30 +716,6 @@ position = Vector2(680, 202)
 position = Vector2(618, 202)
 
 [node name="world" type="Node2D" parent="."]
-
-[node name="debris" parent="world" instance=ExtResource("2_tipki")]
-position = Vector2(643, 190)
-
-[node name="debris2" parent="world" instance=ExtResource("2_tipki")]
-position = Vector2(279, 185)
-
-[node name="debris3" parent="world" instance=ExtResource("2_tipki")]
-position = Vector2(333, 318)
-
-[node name="debris4" parent="world" instance=ExtResource("2_tipki")]
-position = Vector2(981, 435)
-
-[node name="debris5" parent="world" instance=ExtResource("2_tipki")]
-position = Vector2(908, 396)
-
-[node name="debris6" parent="world" instance=ExtResource("2_tipki")]
-position = Vector2(727, 476)
-
-[node name="debris7" parent="world" instance=ExtResource("2_tipki")]
-position = Vector2(203, 358)
-
-[node name="debris8" parent="world" instance=ExtResource("2_tipki")]
-position = Vector2(197, 277)
 
 [node name="player" type="RigidBody2D" parent="world"]
 position = Vector2(448, 248)
@@ -823,21 +780,6 @@ zoom = Vector2(3, 3)
 [node name="CanvasLayer" type="CanvasLayer" parent="world/player/Camera2D"]
 
 [node name="UI" parent="world/player/Camera2D/CanvasLayer" instance=ExtResource("20_gqmmt")]
-
-[node name="Object" parent="world" instance=ExtResource("15_jkv2x")]
-position = Vector2(147, 389)
-object_data = ExtResource("19_gqmmt")
-small_debris_prefab = ExtResource("2_tipki")
-
-[node name="Object2" parent="world" instance=ExtResource("15_jkv2x")]
-position = Vector2(335, 121)
-object_data = ExtResource("19_gqmmt")
-small_debris_prefab = ExtResource("2_tipki")
-
-[node name="Object3" parent="world" instance=ExtResource("15_jkv2x")]
-position = Vector2(597, 494)
-object_data = ExtResource("19_gqmmt")
-small_debris_prefab = ExtResource("2_tipki")
 
 [node name="debug_spawner" type="Node2D" parent="."]
 script = ExtResource("10_choun")

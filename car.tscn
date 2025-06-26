@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cplit5o3srbf1"]
+[gd_scene load_steps=5 format=3 uid="uid://cplit5o3srbf1"]
 
 [ext_resource type="Script" uid="uid://djuhnwy5llkn4" path="res://object.gd" id="1_naq57"]
+[ext_resource type="Resource" uid="uid://chnj7aomn6p5s" path="res://resources/old_car.tres" id="2_uoj53"]
+[ext_resource type="PackedScene" uid="uid://bqhsyiini58i6" path="res://prefabs/debris.tscn" id="3_k61xc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfk7t"]
 
@@ -9,6 +11,8 @@ gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 15.0
 script = ExtResource("1_naq57")
+object_data = ExtResource("2_uoj53")
+small_debris_prefab = ExtResource("3_k61xc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
