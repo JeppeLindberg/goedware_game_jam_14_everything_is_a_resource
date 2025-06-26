@@ -6,6 +6,7 @@ extends Node2D
 @export var car: PackedScene
 @export var washing_machine: PackedScene
 @export var small_debris: PackedScene
+@export var timer: PackedScene
 
 @export var objects_to_spawn = 10.0
 @export var spawns_per_second = 2.0
@@ -28,6 +29,8 @@ func _process(delta: float) -> void:
 			new_node = washing_machine.instantiate()
 		if ticket == 'small_debris':
 			new_node = small_debris.instantiate()
+		if ticket == 'timer':
+			new_node = timer.instantiate()
 		world.add_child(new_node)
 		new_node.global_position = get_spawn_pos()
 
@@ -40,6 +43,8 @@ func populate_tickets():
 		tickets.append('washing_machine')
 	for i in range(7):
 		tickets.append('small_debris')
+	for i in range(2):
+		tickets.append('timer');
 	tickets.shuffle()
 
 func get_spawn_pos():

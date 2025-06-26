@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://bv0t6xv8q4vuy"]
+[gd_scene load_steps=37 format=4 uid="uid://bv0t6xv8q4vuy"]
 
 [ext_resource type="Script" uid="uid://bhr8c5fraojq8" path="res://scripts/player.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dj162p2vv1xmw" path="res://scripts/main.gd" id="1_tbgi4"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cgw31vj6hf7q8" path="res://sprites/gun.png" id="7_eb6dy"]
 [ext_resource type="Script" uid="uid://c7t35v7feojp0" path="res://scripts/center.gd" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://ygu6wpkmtgbx" path="res://prefabs/attach_template.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://bj76t1ecsqq8i" path="res://timer.tscn" id="8_y6deb"]
 [ext_resource type="Script" uid="uid://b6a71nkjowvsy" path="res://scripts/debug_spawner.gd" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://cfok781k1dich" path="res://prefabs/debug_spawn.tscn" id="11_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://cf1gltv2bt20v" path="res://sprites/vacuum-Sheet.png" id="12_jbj1t"]
@@ -198,6 +199,7 @@ script = ExtResource("4_pm3ni")
 car = ExtResource("15_jkv2x")
 washing_machine = ExtResource("6_pm3ni")
 small_debris = ExtResource("2_tipki")
+timer = ExtResource("8_y6deb")
 
 [node name="spawn_point" parent="item_spawner" instance=ExtResource("4_jscy8")]
 position = Vector2(261, 81)
@@ -717,7 +719,7 @@ position = Vector2(618, 202)
 
 [node name="world" type="Node2D" parent="."]
 
-[node name="player" type="RigidBody2D" parent="world"]
+[node name="player" type="RigidBody2D" parent="world" groups=["Player"]]
 position = Vector2(448, 248)
 collision_layer = 2
 collision_mask = 2
