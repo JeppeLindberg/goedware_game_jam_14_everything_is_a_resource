@@ -22,6 +22,7 @@ Global="*res://global.gd"
 [global_group]
 
 Destructible="Objects that can be Destroyed"
+Player=""
 
 [input]
 

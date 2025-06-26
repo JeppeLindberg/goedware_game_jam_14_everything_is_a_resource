@@ -760,7 +760,7 @@ position = Vector2(203, 358)
 [node name="debris8" parent="world" instance=ExtResource("2_tipki")]
 position = Vector2(197, 277)
 
-[node name="player" type="RigidBody2D" parent="world"]
+[node name="player" type="RigidBody2D" parent="world" groups=["Player"]]
 position = Vector2(448, 248)
 collision_layer = 2
 collision_mask = 2

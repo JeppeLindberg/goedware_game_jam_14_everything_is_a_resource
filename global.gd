@@ -2,6 +2,7 @@ extends Node
 
 var score : int = 0
 var active_items : int
+var gametime : float
 
 func add_score(amount : int) -> void:
 	score += amount
@@ -9,3 +10,7 @@ func add_score(amount : int) -> void:
 
 func get_score() -> int:
 	return score
+
+
+func set_gametime(amount : float) -> void:
+	gametime = amount
