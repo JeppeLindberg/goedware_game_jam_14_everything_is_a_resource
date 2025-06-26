@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj76t1ecsqq8i"]
+
+[ext_resource type="Texture2D" uid="uid://pkobgoqyvnos" path="res://sprites/hourglass.png" id="1_qdhxh"]
+[ext_resource type="Script" uid="uid://bbs3pftk3ur4l" path="res://add_timer.gd" id="1_ye2uk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ye2uk"]
+
+[node name="Timer" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ye2uk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qdhxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ye2uk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
