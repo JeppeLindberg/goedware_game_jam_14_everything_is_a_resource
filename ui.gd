@@ -8,6 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.add_to_timer.connect(_on_time_added)
 	timer.start()
 	gameplay.visible = true
 	post_game.visible = false
@@ -22,3 +23,9 @@ func _on_timer_timeout() -> void:
 	gameplay.visible = false
 	post_game.visible = true
 	post_game.add_score(Global.get_score())
+
+func _on_time_added(amount : float) -> void:
+	var current_time_left = timer.time_left
+	timer.stop()
+	timer.set_wait_time(current_time_left + amount)
+	timer.start()

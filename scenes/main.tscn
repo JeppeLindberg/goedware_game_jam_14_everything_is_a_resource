@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c05dytcjpcrny" path="res://prefabs/spawn_point.tscn" id="4_jscy8"]
 [ext_resource type="Script" uid="uid://cifc4erdmoi1s" path="res://scripts/vacuum_point.gd" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://bconcqtxub65k" path="res://scripts/item_spawner.gd" id="4_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://cplit5o3srbf1" path="res://car.tscn" id="5_y6deb"]
 [ext_resource type="PackedScene" uid="uid://ji0ihk5cojma" path="res://prefabs/shot.tscn" id="6_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cvihw5va2fsw8" path="res://washing_machine.tscn" id="6_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://cgw31vj6hf7q8" path="res://sprites/gun.png" id="7_eb6dy"]
@@ -20,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://cf1gltv2bt20v" path="res://sprites/vacuum-Sheet.png" id="12_jbj1t"]
 [ext_resource type="Script" uid="uid://tkag8n4di7db" path="res://scripts/stay_upright.gd" id="13_muem4"]
 [ext_resource type="Texture2D" uid="uid://cmqmwyrb0qeka" path="res://sprite_frames/tilemap_atlas.tres" id="13_trceg"]
-[ext_resource type="PackedScene" uid="uid://cplit5o3srbf1" path="res://car.tscn" id="15_jkv2x"]
 [ext_resource type="AudioStream" uid="uid://dt8xxo7laxfpa" path="res://audio/obtain_scrap.wav" id="15_yc10j"]
 [ext_resource type="PackedScene" uid="uid://dohb1kmupsii1" path="res://snapper.tscn" id="17_0ld40"]
 [ext_resource type="PackedScene" uid="uid://ceed2kjg52d0v" path="res://ui.tscn" id="20_gqmmt"]
@@ -132,7 +132,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tbgi4"]
-radius = 186.011
+radius = 52.2015
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tefeu"]
 radius = 11.0454
@@ -196,7 +196,7 @@ polygon = PackedVector2Array(-54, -49, 83, -50, 83, 114, -57, 112)
 
 [node name="item_spawner" type="Node2D" parent="."]
 script = ExtResource("4_pm3ni")
-car = ExtResource("15_jkv2x")
+car = ExtResource("5_y6deb")
 washing_machine = ExtResource("6_pm3ni")
 small_debris = ExtResource("2_tipki")
 timer = ExtResource("8_y6deb")
