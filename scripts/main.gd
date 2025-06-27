@@ -49,3 +49,12 @@ func get_nodes_in_shape(collider, transform, collision_mask = 0, motion = Vector
 		var node = collision['collider']
 		nodes.append(node)
 	return nodes
+
+func reset():
+	reset_children(self)
+
+func reset_children(node):
+	for child in node.get_children():
+		if child.has_method('reset'):
+			child.reset()
+		reset_children(child)

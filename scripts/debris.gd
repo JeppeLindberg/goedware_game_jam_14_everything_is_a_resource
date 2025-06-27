@@ -8,6 +8,9 @@ var force_to_add: Vector2
 @onready var shape = get_node('shape')
 @onready var sprite = get_node('sprite')
 
+func reset():
+	queue_free()
+
 func _ready() -> void:
 	add_to_group('debris')
 	layer = collision_layer

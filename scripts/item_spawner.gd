@@ -10,11 +10,20 @@ extends Node2D
 
 @export var objects_to_spawn = 10.0
 @export var spawns_per_second = 2.0
+var starting_objects_to_spawn
 
 var tickets = []
 
+func _ready() -> void:
+	starting_objects_to_spawn = objects_to_spawn
+
+func reset():
+	objects_to_spawn = starting_objects_to_spawn
 
 func _process(delta: float) -> void:
+	if not player.accept_input:
+		return;
+
 	objects_to_spawn += delta * spawns_per_second;
 
 	if tickets == []:

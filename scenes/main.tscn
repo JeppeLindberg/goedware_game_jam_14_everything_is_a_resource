@@ -784,6 +784,7 @@ zoom = Vector2(3, 3)
 [node name="UI" parent="world/player/Camera2D/CanvasLayer" instance=ExtResource("20_gqmmt")]
 
 [node name="debug_spawner" type="Node2D" parent="."]
+visible = false
 script = ExtResource("10_choun")
 debug_spawn = ExtResource("11_ya4ey")
 

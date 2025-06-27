@@ -60,7 +60,16 @@ alignment = 1
 [node name="title" type="RichTextLabel" parent="post_game/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
-text = "Time!"
+text = "Time!
+ "
+fit_content = true
+horizontal_alignment = 1
+
+[node name="press_r" type="RichTextLabel" parent="post_game/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "(Press R to reset)
+ "
 fit_content = true
 horizontal_alignment = 1
 

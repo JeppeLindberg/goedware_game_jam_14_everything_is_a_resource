@@ -11,6 +11,9 @@ var local_data : DestructibleObjectResource
 var small_debris_to_emit = 0
 var last_flash_time = -1.0
 
+func reset():
+	queue_free()
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	local_data = object_data.duplicate()

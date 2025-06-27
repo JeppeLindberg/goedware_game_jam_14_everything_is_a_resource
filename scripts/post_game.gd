@@ -3,10 +3,12 @@ extends MarginContainer
 @export var score_prefab: PackedScene
 @onready var v_box_container = get_node('VBoxContainer')
 @onready var title = get_node('VBoxContainer/title')
+@onready var press_r = get_node('VBoxContainer/press_r')
 
 func add_score(new_score):
 	var score_nodes = v_box_container.get_children();
 	score_nodes.erase(title)
+	score_nodes.erase(press_r)
 	var new_node = null
 	for i in len(score_nodes):
 		var score = ''
@@ -29,7 +31,9 @@ func add_score(new_score):
 		node.queue_free()
 	score_nodes = v_box_container.get_children();
 	score_nodes.erase(title)
-	score_nodes.back().queue_free()
+	score_nodes.erase(press_r)
+	if new_score == -1:
+		score_nodes.back().queue_free()
 	
 
 
