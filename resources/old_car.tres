@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DestructibleObjectResource" load_steps=3 format=3 uid="uid://chnj7aomn6p5s"]
 
 [ext_resource type="Script" uid="uid://t8vsjcamwmlw" path="res://resources/destructible_object_resource.gd" id="1_jm5cf"]
-[ext_resource type="Texture2D" uid="uid://8seq8o347los" path="res://sprites/large_debris_2.png" id="2_av0ci"]
+[ext_resource type="Texture2D" uid="uid://qifbkfheurt" path="res://sprites/large_debris_1.png" id="2_av0ci"]
 
 [resource]
 script = ExtResource("1_jm5cf")

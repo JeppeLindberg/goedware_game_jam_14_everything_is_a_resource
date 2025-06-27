@@ -2,7 +2,8 @@ extends Node
 
 var score : int = 0
 var active_items : int
-var gametime : float
+
+signal add_to_timer(time : float)
 
 func reset():
 	score = 0
@@ -16,4 +17,4 @@ func get_score() -> int:
 
 
 func set_gametime(amount : float) -> void:
-	gametime = amount
+	add_to_timer.emit(amount)
