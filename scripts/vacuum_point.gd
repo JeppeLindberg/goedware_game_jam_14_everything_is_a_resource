@@ -15,6 +15,7 @@ var prev_seconds: int = 0
 @export_flags_2d_physics var attach_layer: int
 @export_flags_2d_physics var suck_layer: int
 
+
 func set_vacuum_on(new_vacuum_on):
 	vacuum_on = new_vacuum_on
 

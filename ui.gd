@@ -5,14 +5,15 @@ extends Control
 @onready var gameplay:Control = get_node('gameplay')
 @onready var post_game:Control = get_node('post_game')
 @onready var player = get_node('/root/main/world/player')
+@onready var pre_game: MarginContainer = $pre_game
+
 var start_wait_time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_wait_time = timer.wait_time
 	Global.add_to_timer.connect(_on_time_added)
-	timer.start()
-	gameplay.visible = true
+	player.accept_input = false
 	post_game.visible = false
 
 func reset():
@@ -27,6 +28,12 @@ func reset():
 func _process(delta: float) -> void:
 	score.text = "Score: " + str(Global.get_score())
 	countdown.text = "Time Left: " + str(snapped(timer.time_left, 0.01))
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("reset") and pre_game.visible:
+		pre_game.visible = false
+		reset()
+
 
 func _on_timer_timeout() -> void:
 	player.accept_input = false

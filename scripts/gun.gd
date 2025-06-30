@@ -11,6 +11,8 @@ var vacuum_on: bool
 @onready var vacuum_sprite = get_node('vacuum_point/sprite')
 @onready var world = get_node('/root/main/world')
 @onready var player = get_node('/root/main/world/player')
+@onready var shoot_audio: AudioStreamPlayer2D = $vacuum_point/ShootAudio
+@onready var suck_audio: AudioStreamPlayer2D = $vacuum_point/SuckAudio
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouse:
@@ -23,6 +25,7 @@ func _process(_delta: float) -> void:
 
 	mouse_world_pos = get_viewport().get_canvas_transform().affine_inverse() * mouse_pos
 
+
 	if mouse_world_pos.x < global_position.x:
 		scale.x = -1
 		vacuum_sprite.scale.y = -0.5
@@ -34,6 +37,7 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_pressed('vacuum_on'):
 		vacuum_on = true;
+		suck_audio.play()
 	else:
 		if vacuum_on:
 			shoot()
@@ -44,9 +48,10 @@ func _process(_delta: float) -> void:
 
 func shoot():
 	var debris = main.get_children_in_group(vacuum_point, 'debris')
+	
 	if len(debris) == 0:
 		return
-
+	shoot_audio.play()
 	var new_shot = shot_prefab.instantiate()
 	new_shot.global_position = vacuum_point.global_position
 	new_shot.scale = Vector2.ONE
@@ -62,6 +67,3 @@ func shoot():
 	var attach = main.get_children_in_group(vacuum_point, 'attach')
 	for attach_node in attach:
 		attach_node.queue_free()
-
-
-

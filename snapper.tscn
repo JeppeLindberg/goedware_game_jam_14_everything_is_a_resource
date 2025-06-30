@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dohb1kmupsii1"]
+[gd_scene load_steps=5 format=3 uid="uid://dohb1kmupsii1"]
 
 [ext_resource type="SpriteFrames" uid="uid://c5g55qf1eqkni" path="res://sprite_frames/snapper.tres" id="1_6mgnd"]
 [ext_resource type="Script" uid="uid://bmn7hfwre6fui" path="res://snapper.gd" id="2_4xdvh"]
+[ext_resource type="AudioStream" uid="uid://cvttpharg5wbl" path="res://audio/chomp.wav" id="3_kqfbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqfbi"]
 size = Vector2(48, 50)
@@ -21,5 +22,8 @@ script = ExtResource("2_4xdvh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_kqfbi")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kqfbi")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

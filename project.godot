@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="goedware_game_jam_14_everything_is_a_resource"
+config/name="Scrapyard Scramble"
 run/main_scene="uid://bv0t6xv8q4vuy"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://deuhr32vb0gnd"
 
 [autoload]
 
@@ -23,6 +23,10 @@ Global="*res://global.gd"
 
 Destructible="Objects that can be Destroyed"
 Player=""
+
+[gui]
+
+theme/custom_font="uid://b6nfoxa20mdna"
 
 [input]
 

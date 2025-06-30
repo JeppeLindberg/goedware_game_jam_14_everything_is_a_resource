@@ -9,7 +9,7 @@ var mouse_world_pos: Vector2
 @onready var gun = get_node('gun')
 @onready var main = get_node('/root/main')
 @onready var sprite:AnimatedSprite2D = get_node('sprite')
-@onready var accept_input = true
+@onready var accept_input = false
 
 var starting_pos
 
